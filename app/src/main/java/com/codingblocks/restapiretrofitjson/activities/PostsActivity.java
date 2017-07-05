@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.codingblocks.restapiretrofitjson.MainActivity;
 import com.codingblocks.restapiretrofitjson.R;
@@ -64,8 +65,10 @@ public class PostsActivity extends AppCompatActivity {
         };
         int userIdReceived = getIntent().getIntExtra("userId", -1);
         if (userIdReceived != -1) {
+            ((TextView)findViewById(R.id.activity_Title)).setText("POSTS OF USER "+userIdReceived);
             postsAPI.getPostsByUserId(userIdReceived).enqueue(postCallback);
         } else {
+            ((TextView)findViewById(R.id.activity_Title)).setText("POSTS");
             postsAPI.getPosts().enqueue(postCallback);
         }
 

@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.widget.TextView
 
 import kotlinx.android.synthetic.main.activity_todos.*
 
@@ -36,9 +37,11 @@ class TodosActivity : AppCompatActivity() {
         }
         var userId = intent.getIntExtra("userId", -1)
         if (userId != -1) {
+            activity_Title.text = "ToDo OF USER " + userId
             API.getInstance().todosAPI.getTodos(userId).enqueue(todoCallback)
 
         } else {
+            activity_Title.text = "ToDos"
             API.getInstance().todosAPI.getTodos(null).enqueue(todoCallback)
         }
 

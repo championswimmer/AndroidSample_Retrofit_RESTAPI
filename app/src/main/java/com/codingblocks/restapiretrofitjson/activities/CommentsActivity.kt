@@ -22,13 +22,16 @@ class CommentsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comments)
 
+        var postId :Int = intent.getIntExtra("postId", 0)
+        activity_Title.text = "COMMENTS ON POST "+ postId
+
         val commentAdapter =  CommentAdapter(this, ArrayList<Comment>())
         rvCommentsList.layoutManager = LinearLayoutManager(this)
         rvCommentsList.adapter = commentAdapter
 
 
 
-        API.getInstance().commentsAPI.getCommentsByPostId(intent.getIntExtra("postId", 0))
+        API.getInstance().commentsAPI.getCommentsByPostId(postId)
                 .enqueue(object : Callback<ArrayList<Comment>> {
             override fun onFailure(call: Call<ArrayList<Comment>>?, t: Throwable?) {
                 //

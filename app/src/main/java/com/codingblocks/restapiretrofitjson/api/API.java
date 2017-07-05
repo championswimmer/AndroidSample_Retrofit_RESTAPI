@@ -15,10 +15,22 @@ public class API {
     private UsersAPI usersAPI;
     private CommentsAPI commentsAPI;
     private TodosAPI todosAPI;
+    private AlbumsAPI albumsAPI;
+    private AlbumsAPI.PhotosAPI albumPhotosAPI ;
+    private PhotoAPI photoAPI ;
+
+    public AlbumsAPI.PhotosAPI getAlbumPhotosAPI() {
+        return albumPhotosAPI;
+    }
+
+    public PhotoAPI getPhotoAPI() {
+        return photoAPI;
+    }
 
     public PostsAPI getPostsAPI() {
         return postsAPI;
     }
+
 
     public UsersAPI getUsersAPI() {
         return usersAPI;
@@ -30,6 +42,10 @@ public class API {
 
     public TodosAPI getTodosAPI() {
         return todosAPI;
+    }
+
+    public AlbumsAPI getAlbumsAPI() {
+        return albumsAPI;
     }
 
     private API() {
@@ -44,6 +60,9 @@ public class API {
         usersAPI = retrofit.create(UsersAPI.class);
         commentsAPI = retrofit.create(CommentsAPI.class);
         todosAPI = retrofit.create(TodosAPI.class);
+        albumsAPI = retrofit.create((AlbumsAPI.class));
+        albumPhotosAPI = retrofit.create(AlbumsAPI.PhotosAPI.class);
+        photoAPI = retrofit.create(PhotoAPI.class);
     }
 
     public static API getInstance() {

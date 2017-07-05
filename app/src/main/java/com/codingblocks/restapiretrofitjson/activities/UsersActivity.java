@@ -7,12 +7,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.codingblocks.restapiretrofitjson.R;
 import com.codingblocks.restapiretrofitjson.adapters.UserAdapter;
 import com.codingblocks.restapiretrofitjson.api.API;
 import com.codingblocks.restapiretrofitjson.interfaces.OnItemClickListener;
 import com.codingblocks.restapiretrofitjson.models.User;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -31,7 +34,7 @@ public class UsersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
-
+        ((TextView)findViewById(R.id.activity_Title)).setText("USERS");
         rvUserList = (RecyclerView) findViewById(R.id.rvUserList);
         rvUserList.setLayoutManager(new LinearLayoutManager(this));
         userAdapter = new UserAdapter(this, new ArrayList<User>());
