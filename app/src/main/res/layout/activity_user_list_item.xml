@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="5dp"
+    app:cardMaxElevation="3dp"
+    android:layout_margin="3dp"
+    tools:context="com.example.android.fakeapi.UserActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:textSize="24sp"
+            android:textColor="#000000"
+            android:padding="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="Name" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:textSize="24sp"
+            android:textColor="#000000"
+            android:padding="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tv_name"
+            android:text="Email" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:padding="3dp"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tv_email"
+            android:text="Phone" />
+
+        <TextView
+            android:id="@+id/tv_website"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:padding="3dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_phone"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/tv_email"
+            android:text="Website" />
+
+        <Button
+            android:id="@+id/btn_userpost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/tv_phone"
+            android:layout_below="@+id/tv_phone"
+            android:layout_marginEnd="44dp"
+            android:layout_marginTop="20dp"
+            android:text="Posts" />
+
+        <Button
+            android:id="@+id/btn_usertodos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/btn_userpost"
+            android:layout_alignStart="@+id/tv_website"
+            android:layout_marginStart="35dp"
+            android:text="Todos" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
