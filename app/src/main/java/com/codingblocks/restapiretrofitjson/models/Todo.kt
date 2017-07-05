@@ -1,9 +1,5 @@
 package com.codingblocks.restapiretrofitjson.models
-
 /**
- * Created by championswimmer on 02/07/17.
+ * Created by amandhapola on 30/06/17.
  */
-data class Todo (
-        val id: Int, val userId: Int,
-        val title: String, val completed: Boolean
-)
+class Todo(var userId:Int , var id:Int ,var title:String ,var completed:Boolean)

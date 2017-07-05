@@ -1,12 +1,5 @@
 package com.codingblocks.restapiretrofitjson.models
-
 /**
- * Created by championswimmer on 29/06/17.
+ * Created by amandhapola on 30/06/17.
  */
-data class Comment(
-        val postId: Int,
-        val id: Int,
-        val name: String,
-        val email: String,
-        val body: String
-)
+class Comment(var postId:Int , var id:Int , var name:String ,var email:String ,var body:String)

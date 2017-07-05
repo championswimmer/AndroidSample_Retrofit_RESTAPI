@@ -1,63 +1,38 @@
 package com.codingblocks.restapiretrofitjson.adapters
-
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import com.codingblocks.restapiretrofitjson.R
 import com.codingblocks.restapiretrofitjson.models.Comment
-import kotlinx.android.synthetic.main.list_item_comment.view.*
-import java.util.*
+import kotlinx.android.synthetic.main.activity_comment_list_item.view.*
 
 /**
- * Created by championswimmer on 29/06/17.
+ * Created by amandhapola on 01/07/17.
  */
-
-class CommentAdapter(private val context: Context,
-                     private var comments: ArrayList<Comment>)
-    : RecyclerView.Adapter<CommentAdapter.CommentViewHolder>() {
-
-    fun updateComments(comments: ArrayList<Comment>) {
-        this.comments = comments;
-        notifyDataSetChanged();
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentViewHolder {
-
-
-        val itemView = LayoutInflater.from(parent.context)
-                .inflate(R.layout.list_item_comment, parent, false)
-
-        return CommentViewHolder(
-                itemView.tvCommentBody,
-                itemView.tvCommentName,
-                itemView.tvCommentEmail,
-                itemView
-        )
-    }
-
-    override fun onBindViewHolder(holder: CommentViewHolder, position: Int) {
-
-        val (_, _, name, email, body) = comments[position]
-        holder.tvCommentBody.text = body
-        holder.tvCommentName.text = name
-        holder.tvCommentEmail.text = email
-
-    }
-
+class CommentAdapter(var commentList : ArrayList<Comment>) : RecyclerView.Adapter<CommentAdapter.CommentViewHolder>() {
     override fun getItemCount(): Int {
-        return comments.size
+        return commentList.size
     }
 
-    class CommentViewHolder(
-            public val tvCommentBody: TextView,
-            public val tvCommentName: TextView,
-            public val tvCommentEmail: TextView,
-            itemView: View
-    ) : RecyclerView.ViewHolder(itemView) {
+    override fun onBindViewHolder(holder: CommentViewHolder?, position: Int) {
+        var comment=commentList.get(position)
+        if (holder != null) {
+            holder.name.setText(comment.name)
+            holder.email.setText(comment.email)
+            holder.body.setText(comment.body)
+        }
+    }
 
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CommentViewHolder {
+        var v : View=LayoutInflater.from(parent?.context).inflate(R.layout.activity_comment_list_item,parent,false)
+        return CommentViewHolder(v)
+    }
 
+    class CommentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        var name=itemView.tv_commentername
+        var email=itemView.tv_commenteremail
+        var body=itemView.tv_commentbody
+        var v=itemView
     }
 }
